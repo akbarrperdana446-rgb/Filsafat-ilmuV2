@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 Kuis Pink Floral - 100 Soal 🌸</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+
+        body {
+            background-color: #ffd1dc; /* Pastel pink background */
+            font-family: 'Nunito', sans-serif;
+            color: #d81b60;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            /* SVG Floral Pattern Seamless Background */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg opacity='0.6'%3E%3Ccircle cx='50' cy='35' r='12' fill='%23ff99cc'/%3E%3Ccircle cx='65' cy='50' r='12' fill='%23ff99cc'/%3E%3Ccircle cx='50' cy='65' r='12' fill='%23ff99cc'/%3E%3Ccircle cx='35' cy='50' r='12' fill='%23ff99cc'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%23ff1493'/%3E%3Ccircle cx='100' cy='85' r='8' fill='%23ffb6c1'/%3E%3Ccircle cx='115' cy='100' r='8' fill='%23ffb6c1'/%3E%3Ccircle cx='100' cy='115' r='8' fill='%23ffb6c1'/%3E%3Ccircle cx='85' cy='100' r='8' fill='%23ffb6c1'/%3E%3Ccircle cx='100' cy='100' r='5' fill='%23ff69b4'/%3E%3Ccircle cx='0' cy='-15' r='8' fill='%23ffb6c1'/%3E%3Ccircle cx='15' cy='0' r='8' fill='%23ffb6c1'/%3E%3Ccircle cx='0' cy='15' r='8' fill='%23ffb6c1'/%3E%3Ccircle cx='-15' cy='0' r='8' fill='%23ffb6c1'/%3E%3Ccircle cx='0' cy='0' r='5' fill='%23ff69b4'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 100px 100px;
+        }
+
+        .quiz-container {
+            background: rgba(255, 240, 245, 0.95); /* LavenderBlush dengan transparansi sedikit */
+            border: 4px solid #ff69b4; /* HotPink */
+            border-radius: 25px;
+            padding: 30px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+            position: relative;
+            margin: 40px 0;
+            backdrop-filter: blur(5px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #ff1493; /* DeepPink */
+            margin: 0;
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(255, 182, 193, 0.8);
+        }
+
+        .mascot {
+            font-size: 40px;
+            margin: 10px 0;
+        }
+
+        .question-text {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #c2185b;
+            background: #fff;
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px dashed #ffb6c1;
+            line-height: 1.5;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .option {
+            background: #fff;
+            border: 2px solid #ffb6c1;
+            border-radius: 15px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            color: #d81b60;
+            line-height: 1.4;
+            display: flex;
+        }
+        
+        /* Memberikan jarak antara huruf A. B. C. dengan teks jawabannya */
+        .option-label {
+            margin-right: 10px;
+            font-weight: 900;
+            color: #ff1493;
+        }
+
+        .option:hover {
+            background: #ffe4e1;
+            transform: scale(1.02);
+        }
+
+        .option.selected {
+            background: #ff69b4;
+            color: white;
+            border-color: #ff1493;
+        }
+        
+        .option.selected .option-label {
+            color: white; /* Ubah warna huruf abjad saat dipilih */
+        }
+
+        .option.correct {
+            background: #a8df8e; /* Pastel Green */
+            color: #1e5631;
+            border-color: #4caf50;
+        }
+
+        .option.correct .option-label {
+            color: #1e5631;
+        }
+
+        .option.wrong {
+            background: #ffb3ba; /* Pastel Red */
+            color: #b71c1c;
+            border-color: #d32f2f;
+        }
+
+        .option.wrong .option-label {
+            color: #b71c1c;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: 'Nunito', sans-serif;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(255, 105, 180, 0.4);
+            flex: 1;
+        }
+
+        .btn:hover {
+            background-color: #ff1493;
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            background-color: #ffc0cb;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .result-container {
+            display: none;
+            text-align: center;
+        }
+
+        .score-text {
+            font-size: 24px;
+            font-weight: 900;
+            color: #ff1493;
+            margin: 20px 0;
+        }
+
+        .progress {
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ff69b4;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .controls {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container" id="quiz-box">
+    <div id="quiz-screen">
+        <div class="header">
+            <div class="mascot">🌸🎀✨</div>
+            <h1>Kuis Filsafat Ilmu</h1>
+        </div>
+        
+        <div class="progress" id="progress-text">Soal 1 dari 100</div>
+        
+        <div class="question-text" id="question">Memuat soal...</div>
+        
+        <div class="options-container" id="options">
+            <!-- Opsi akan dimuat di sini -->
+        </div>
+
+        <div class="controls">
+            <button class="btn" id="btn-prev" onclick="prevQuestion()">🌸 Sebelumnya</button>
+            <button class="btn" id="btn-check" onclick="checkAnswer()">🔍 Cek Jawaban</button>
+            <button class="btn" id="btn-next" onclick="nextQuestion()">Selanjutnya 🎀</button>
+        </div>
+    </div>
+
+    <div class="result-container" id="result-screen">
+        <div class="mascot">💖🎉🏆</div>
+        <h1>Yeay! Kuis Selesai!</h1>
+        <div class="score-text" id="score">Skor Kamu: 0 / 100</div>
+        <p style="font-weight:bold; color:#ff69b4;">Kamu hebat banget udah ngerjain semuanya! Terus semangat belajarnya ya! ✨</p>
+        <button class="btn" style="width: 100%; margin-top: 20px;" onclick="retakeQuiz()">🔁 Kerjakan Ulang</button>
+    </div>
+</div>
+
+<script>
+    // Data Lengkap 100 Soal Disimpan dalam Variabel originalQuestions
+    const originalQuestions = [
+        { question: "Ahli filsafat Yunani Kuno yang berpandangan bahwa asal segala sesuatu merupakan bilangan adalah...", options: ["Anaximenes", "Pythagoras", "Herakleitos", "Thales"], correctAnswer: 1 },
+        { question: "Filsafat berasal dari kata Yunani yang berarti...", options: ["baik hati dan jujur", "arif dan bijaksana", "cinta pada kebijaksanaan", "sahabat setia"], correctAnswer: 2 },
+        { question: "Pendapat yang menyebutkan bahwa asal alam semesta bertitik tolak dari bilangan disampaikan oleh.....", options: ["Anaximenes", "Herakleitos", "Leukippos", "Phytagoras"], correctAnswer: 3 },
+        { question: "Udara merupakan dasar dari semua kehidupan di alam semesta. Pendapat ini disampaikan oleh....", options: ["Anaximenes", "Leukippos", "Herakleitos", "Phytagoras"], correctAnswer: 0 },
+        { question: "Plato percaya bahwa yang paling mendasar dalam realitas kehidupan manusia adalah....", options: ["kehendak", "perubahan", "dialog", "idea atau ide"], correctAnswer: 3 },
+        { question: "Bagi Plato, yang dapat digunakan untuk melihat ide serta menertibkan jiwa-jiwa yang ada pada bagian tengah (rasa) dan pada bagian bawah (nafsu) adalah...", options: ["kognisi", "akal budi", "intuisi", "rasa"], correctAnswer: 1 },
+        { question: "Jika seorang pemikir bermaksud mencapai kebenaran dalam hasil pikirnya maka menurut Aristoteles orang tersebut harus memenuhi syarat-syarat yang dimuat dalam tulisannya, yaitu....", options: ["Analitika", "Estetika", "Informatika", "Etika"], correctAnswer: 0 },
+        { question: "Salah satu upaya dari para ahli filsafat untuk mengungkap kebenaran, adalah....", options: ["percaya hakikat persepsi", "mencari fakta baru yang lebih benar", "berpikir terus-menerus secara radikal", "mencari kebenaran yang bersifat nisbi"], correctAnswer: 2 },
+        { question: "Manfaat mempelajari berbagai pandangan dalam filsafat bagi praktek pendidikan antara lain adalah....", options: ["mengubah cara berpikir dalam mengajar", "memberi pemahaman berbagai aliran dalam filsafat", "mencari pencerahan dalam berpikir", "memberikan landasan untuk bersikap dan berpijak"], correctAnswer: 3 },
+        { question: "Aliran humanisme memiliki dua arah, yaitu Humanisme Individual dan Humanisme Sosial. Humanisme Sosial mengutamakan hal-hal seperti di bawah ini kecuali...", options: ["kemerdekaan berpikir", "mengemukakan pendapat", "mengutamakan pendidikan", "mengemukakan berbagai aktivitas yang kreatif"], correctAnswer: 0 },
+        { question: "Kemampuan individu disalurkan melalui kesenian, olahraga, kesastraan, teknologi, dan penguasaan ilmu kealaman merupakan pendapat dan pandangan ....", options: ["Kritisisme", "Kontruksivisme", "Humanisme Individu", "Idealisme"], correctAnswer: 2 },
+        { question: "John Locke yang mengatakan bahwa pengalaman merupakan sumber pengetahuan, termasuk penganut aliran", options: ["Empirisme", "Idealisme", "Humanisme", "Rasionalisme"], correctAnswer: 0 },
+        { question: "Dua aliran filsafat ini sama-sama mengemukakan pentingnya pemerolehan pengetahuan secara aktif, baik melalui pengamatan maupun komunikasi. Aliran tersebut adalah....", options: ["Empirisme dan Kritisisme", "Kritisisme dan Rasionalisme", "Konstruktivisme dan Kritisisme", "Empirisme dan Konstruktivisme"], correctAnswer: 3 },
+        { question: "Salah satu contoh perkembangan Konstruktivisme Kritis dari Konstruktivisme Sosial adalah....", options: ["belajar dilakukan melalui interaksinya dengan lingkungan sosial ataupun fisik seseorang", "menumbuhkan penalaran anak melalui mekanisme asimilasi, akomodasi, dan ekuilibrium", "upaya merangsang peserta didik menggunakan teknik yang lebih kritis dalam menerapkan konsep yang bermakna bagi dirinya", "pembangunan pengetahuan anak melalui beragam jalur seperti membaca, bertanya, menelusuri, dan melakukan eksperimen"], correctAnswer: 2 },
+        { question: "Cabang Filsafat yang membahas sumber dan dasar pengetahuan adalah...", options: ["Epistemologi", "Etika", "Logika", "Metafisika"], correctAnswer: 0 },
+        { question: "Inti permasalahan yang dibahas oleh filsafat logika adalah....", options: ["dasar-dasar realitas", "perilaku yang patut di masyarakat", "asas-asas dan aturan-aturan formal bagi penalaran", "asal mula, bentuk dan struktur yang membentuk pengetahuan"], correctAnswer: 2 },
+        { question: "Salah satu manfaat ilmu bagi guru adalah...", options: ["menentukan cara yang tepat untuk memotivasi siswa", "memberi peringatan kepada siswa agar lebih rajin belajar", "memilih materi pelajaran yang sesuai dengan jenis sekolah", "memutuskan jumlah jam pelajaran yang sesuai karakteristik siswa"], correctAnswer: 0 },
+        { question: "Alasan perlunya mengingat aspek moralitas dalam pengembangan ilmu adalah untuk ...", options: ["menghindari terjadinya spesialisasi ilmu secara berlarut-larut", "menghindari timbulnya dampak negatif dari perkembangan ilmu tersebut", "menjaga terjaminnya rasionalitas dalam pengembangan ilmu tersebut", "mengusahakan terwujudnya hasil pengembangan ilmu secara menyeluruh"], correctAnswer: 1 },
+        { question: "Aspek yang memengaruhi pembentukan pengetahuan adalah......", options: ["pengalaman dan nilai", "nilai yang dimiliki dan penyeimbang", "sumber pengetahuan dan pembanding", "ekspose terhadap kejadian dan fakta yang ada"], correctAnswer: 3 },
+        { question: "Aspek yang memengaruhi pembentukan pengetahuan adalah... (Varian Soal)", options: ["nilai yang dimiliki dan penyeimbang", "pengalaman dan paparan terhadap nilai", "sumber pengetahuan dan nilai yang dimiliki", "paparan terhadap kejadian dan fakta yang ada"], correctAnswer: 3 },
+        { question: "M. Goldstein dan I.F. Goldstein menyatakan bahwa science merupakan aktivitas yang ditandai dengan, salah satunya...", options: ["skema konseptual yang dikembangkan sebagai hasil eksperimen", "pengetahuan tentang alam yang diperoleh dari interaksi indra dengan dunia", "observasi dan eksperimen terhadap serangkaian konsep", "hukum dan prinsip dapat diuji dengan eksperimen pengetahuan yang diperoleh dengan metode ilmiah"], correctAnswer: 2 },
+        { question: "Pakar yang mendefinisikan science sebagai semua pengetahuan yang diperoleh dengan metode ilmiah adalah...", options: ["Connant", "Dampier", "Kemeny", "Suppe"], correctAnswer: 1 },
+        { question: "Salah satu contoh ilmu kealaman adalah ...", options: ["Antropologi", "Geofisika", "Sosiologi", "Psikologi"], correctAnswer: 1 },
+        { question: "Salah satu contoh ilmu sosial adalah...", options: ["Botani", "Geofisika", "Sejarah", "Zoology"], correctAnswer: 2 },
+        { question: "Pandangan Ontologi mengisyaratkan bahwa pengembangan ilmu hendaknya mengindahkan.....", options: ["fatwa para ulama", "peranan (kekuasaan) negara", "sistem nilai yang berlaku di masyarakat", "pandangan pragmatis atau memenuhi kebutuhan manusia"], correctAnswer: 3 },
+        { question: "Aksiologi merupakan salah satu bidang kajian dari filsafat ilmu. Bidang kajian filsafat ini meneliti tentang.....", options: ["hakikat nilai-nilai", "hakikat ilmu/wujud/eksistensi", "pemanfaatan pengetahuan dan evaluasi", "sumber, syarat serta proses terjadinya pengetahuan"], correctAnswer: 0 },
+        { question: "Salah satu contoh bidang kajian Ontologi adalah ....", options: ["paradigma Positivisme yang memandang realitas sebagai fragmen-fragmen yang mudah diisolasi dari lingkungannya", "sebelum perang dunia kedua pecah, sains merupakan ilmu yang bebas nilai", "para peneliti bidang sosial memiliki paradigma Naturalistis sebab aspek yang diteliti harus bersifat wajar alami", "dengan adanya persaingan dalam bidang industri perdagangan maka diperlukan sains dalam bentuk laboratorium"], correctAnswer: 0 },
+        { question: "Salah satu contoh bidang kajian ontologi adalah .... (Varian Soal)", options: ["Copernicus dan Galileo Galilei yang memperkenalkan bahwa semesta berpusat pada bumi, matahari, bulan, dan bintang bergerak mengelilinginya", "paradigma positivisme memandang realitas sebagai fragmen-fragmen yang mudah diisolasi dari lingkungannya", "para peneliti bidang sosial memiliki paradigma naturalistis, sebab aspek yang diteliti harus bersifat wajar alami", "adanya persaingan dalam bidang industri perdagangan, maka diperlukan sains dalam bentuk laboratorium"], correctAnswer: 1 },
+        { question: "Sebutkan contoh bidang kajian Epistemologi di bawah ini....", options: ["paradigma positivisme memandang realitas sebagai fragmen-fragmen yang mudah diisolasi dari lingkungan", "sebelum perang dunia kedua pecah, sains merupakan ilmu yang bebas nilai", "para peneliti bidang sosial memiliki paradigma naturalistis sebab aspek yang diteliti harus bersifat wajar atau alami", "persaingan dalam bidang industri perdagangan, menuntut sains dalam bentuk laboratorium"], correctAnswer: 2 },
+        { question: "Salah satu pernyataan bidang kajian Epistemologi adalah....", options: ["sains merupakan ilmu yang bebas nilai", "aspek yang diteliti harus bersifat wajar atau alami", "kecaman terhadap ilmuwan karena hasil penelitiannya dianggap menghancurkan manusia", "diperlukan saintis dalam bentuk laboratorium karena makin kerasnya persaingan usaha"], correctAnswer: 1 },
+        { question: "Peneliti yang memilih untuk tidak melakukan penelitian tentang pengaruh pemberian obat terlarang kepada siswa adalah peneliti yang menerapkan kajian apa dalam filsafat ilmu?", options: ["Ontologi", "Aksiologi", "Epistemologi", "Pendidikan"], correctAnswer: 1 },
+        { question: "Kajian filsafat ilmu dalam penelitian yang memprediksi pengaruh pemberian tambahan jam pelajaran kepada motivasi siswa adalah...", options: ["Ontologi", "Aksiologi", "Pendidikan", "Epistemologi"], correctAnswer: 3 },
+        { question: "Pakar yang merumuskan cara melakukan penelitian ilmiah dengan system hypothetico-deduktive adalah...", options: ["Prancis Bacon", "John Locke", "Karl Popper", "Thomas Kuhn"], correctAnswer: 2 },
+        { question: "Menurut Francis Bacon, cara kerja yang termasuk metode ilmiah adalah...", options: ["mengumpulkan informasi sebanyak-banyaknya tentang sesuatu pokok soal", "menyangkal suatu hipotesis dengan melakukan penelitian empiris", "mengumpulkan secara sistematis semua informasi yang relevan tentang suatu subyek dan mengaturnya pada suatu tabel", "merencanakan suatu eksperimen untuk menyangkal hipotesis"], correctAnswer: 2 },
+        { question: "Penyusunan kerangka pikir dalam satu kegiatan penelitian tidak lepas dari...", options: ["metode yang digunakan dalam penelitian terdahulu", "populasi dan sampel yang dilibatkan dalam penelitian", "referensi yang dibaca peneliti dan diakui kebenarannya", "teori yang telah ada dan telah diuji kebenaran ilmiahnya"], correctAnswer: 3 },
+        { question: "Dalam suatu penelitian, pengalaman yang menimbulkan pertanyaan dapat dijadikan...", options: ["masalah", "kerangka pikir", "metode", "kesimpulan"], correctAnswer: 0 },
+        { question: "Mencari hal esensial yang relevan dengan topik merupakan salah satu kegiatan pada...", options: ["perumusan masalah", "penyusunan kerangka pikir", "pengembangan instrumen", "analisis data"], correctAnswer: 1 },
+        { question: "Menentukan teori yang relevan dengan topik penelitian merupakan salah satu kegiatan pada....", options: ["perumusan masalah", "penyusunan kerangka pikir", "pengembangan instrumen", "analisis data"], correctAnswer: 1 },
+        { question: "Pernyataan yang berupa jawaban sementara dari topik yang akan diteliti dan masih memerlukan pengujian lebih lanjut kebenarannya dikenal sebagai....", options: ["asumsi", "hipotesis", "kualitatif", "kuantitatif"], correctAnswer: 1 },
+        { question: "Dalam konteks berpikir ilmiah, pernyataan yang harus diuji kebenarannya secara empiris karena diposisikan sebagai jawaban sementara dari topik yang akan diteliti merupakan pengertian dari...", options: ["tujuan", "masalah", "hipotesis", "rekomendasi"], correctAnswer: 2 },
+        { question: "Metode ilmiah yang mengandung pengertian pembuktian hipotesis dimana hipotesis yang didukung hasil eksperimen diterima dan hipotesis yang tidak didukung oleh hasil eksperimen ditolak, dikemukakan oleh....", options: ["E. Friedman", "F. Bacon", "K. Popper", "P. Chavehard"], correctAnswer: 2 },
+        { question: "Ahli filsafat yang merumuskan cara melakukan penelitian ilmiah dengan sistem hypothetical-deductive adalah...", options: ["B. Friedman", "F. Bacon", "K. Popper", "P. Chavehard"], correctAnswer: 2 },
+        { question: "Pada hakikatnya sebuah hipotesis dapat diterima apabila....", options: ["memenuhi syarat-syarat penelitian", "tidak didapatkan fakta yang menolak hipotesis tersebut", "dilakukan oleh para pakar penelitian", "penelitiannya dilakukan secara terbuka"], correctAnswer: 1 },
+        { question: "Jika sebuah hipotesis telah diterima validitas ilmiahnya, hal tersebut membuktikan bahwa penelitian tersebut telah....", options: ["sesuai dengan keinginan penelitinya", "selesai dilakukan", "telah memenuhi syarat-syarat penelitian", "menggunakan sistematika sebagai usaha dan titik tolak untuk menemukan penemuan baru"], correctAnswer: 3 },
+        { question: "Menurut Thomas Khun di dalam bukunya The Structure of Scientific Revolution (1970), landasan pokok dalam mencari kebenaran adalah....", options: ["hipotesis", "aksioma", "pengalaman", "paradigma"], correctAnswer: 3 },
+        { question: "Paradigma yang tidak digunakan oleh ilmuwan dalam menemukan kebenaran ilmiah yaitu....", options: ["Logika", "Spesifik", "Naturalis", "Modus operandi"], correctAnswer: 3 },
+        { question: "Paradigma yang banyak digunakan untuk mencari kebenaran adalah paradigma....", options: ["ilmiah", "positivistik", "naturalistik", "ilmiah dan paradigma naturalistik"], correctAnswer: 3 },
+        { question: "Paradigma yang digunakan dalam mencari kebenaran dengan titik berat pada penggunaan metode kualitatif adalah paradigma", options: ["ilmiah", "alamiah", "positivistik", "naturalistik"], correctAnswer: 3 },
+        { question: "Menjelaskan kebenaran dengan veritikasi, eksperimen, dan atau pengujian merupakan salah satu fungsi dari ....", options: ["teori", "hukum", "paradigma", "pendukung"], correctAnswer: 2 },
+        { question: "Manfaat dan fungsi paradigma dalam mencari kebenaran ilmiah antara lain adalah...", options: ["memungkinkan pengguguran teori dan menelusuri kebenaran dengan fakta", "memungkinkan pengguguran hukum dan menjamin kebenaran dengan pengujian", "menyimpulkan kebenaran berdasarkan fakta dan menjelaskan kebenaran dengan verifikasi", "menyimpulkan kebenaran berdasarkan fakta dan eksperimen"], correctAnswer: 2 },
+        { question: "Menghargai pendapat orang lain yang merupakan salah satu ciri ilmuwan dicerminkan dari...", options: ["kemauan memperbaiki kesalahan yang sudah dilakukan", "kekukuhan untuk mempertahankan pendapat yang didukung fakta", "keyakinan pada hasil pengujian yang sudah dibuktikan kebenarannya", "keseriusan untuk menelusuri variabel yang belum pernah diteliti sebelumnya"], correctAnswer: 0 },
+        { question: "Kemampuan seseorang untuk gemar meneliti dapat berkembang optimal jika sejak anak-anak mereka diberi kesempatan untuk mengembangkan sikap...", options: ["kritis", "tekun", "inkuiri", "skeptis"], correctAnswer: 2 },
+        { question: "Kapan jalan pikiran seseorang disebut logis?", options: ["Pada saat jalan pikiran tersebut sesuai dengan aturan yang dikemukakan dalam logika", "Pada saat orang tersebut menggunakan asas dalam mengemukakan kesimpulan yang didapatnya.", "Pada saat orang tersebut menerapkan argumen berdasarkan fakta yang sudah diuji kebenarannya", "Pada saat jalan pikiran tersebut dicermati sesuai dengan psikologi pikiran yang bersangkutan"], correctAnswer: 0 },
+        { question: "Dalam kaitannya dengan tuntutan fundamental mutlak eksistensi ilmu, apa yang secara sistematis dirumuskan logika untuk ditaati agar orang dapat berpikir dengan tepat, lurus dan teratur?", options: ["Asas", "Moral", "Agama", "Argumen"], correctAnswer: 0 },
+        { question: "Untuk menunjukkan adanya upaya memberikan bukti yang mendukung suatu kesimpulan diperlukan...", options: ["logika", "asumsi", "penalaran", "pembenaran"], correctAnswer: 2 },
+        { question: "Perhatikan premis berikut!\nBadu sering kali tidak mengerjakan pekerjaan rumah (Premis 1)\nBadu sering kali tidak masuk sekolah (Premis 2)\nBadu hari ini sakit (Kesimpulan)\nKesimpulan yang diambil...", options: ["benar karena ditunjang dua premis yang dapat dijadikan bukti", "belum tentu benar karena premis 1 belum tentu benar", "belum tentu benar karena premis 2 belum tentu benar", "belum tentu benar karena ke dua premis yang diberikan tidak berkaitan dengan kesimpulan"], correctAnswer: 3 },
+        { question: "Kegiatan berpikir dapat dilakukan oleh siapa saja. Berpikir merupakan...", options: ["perjuangan batin seseorang", "kegiatan akal yang khas dan terarah", "dialog dengan lingkungan", "renungan tentang satu hal"], correctAnswer: 1 },
+        { question: "Menurut Poespoprodjo (1985), logika termasuk ke dalam kajian di bidang...", options: ["pengetahuan", "ilmu", "filsafat", "penelitian"], correctAnswer: 2 },
+        { question: "Premis merupakan bukti yang berbentuk...", options: ["logika", "silogisme", "argumen", "kesimpulan / pernyataan"], correctAnswer: 3 },
+        { question: "Fungsi logika terhadap argumen pada dasarnya adalah untuk mengevaluasi...", options: ["validitasnya", "kelogisannya", "reliabilitasnya", "kebermaknaannya"], correctAnswer: 0 },
+        { question: "Contoh premis dan proposisi yang paling tepat dari pernyataan di bawah ini adalah", options: ["Ano merek mesin cuci terkenal, banyak pembelinya. Dengan demikian setiap barang elektronik yang terkenal, pasti banyak pembelinya", "Bedeg merek sepeda motor yang tidak terkenal, harganya murah. Setiap sepeda motor yang tidak terkenal harganya pasti murah", "Barang itu jarang dibeli orang, harganya sangat murah. Barang yang jarang dibeli orang, harganya pasti murah", "Aloy merek TV terkenal, kualitasnya sudah teruji dan terbukti, harganyapun mahal. Setiap TV berkualitas harganya pasti mahal"], correctAnswer: 3 },
+        { question: "Contoh premis dan preposisi yang paling benar dari penyataan di bawah ini adalah...", options: ["Pak Ali banyak makan dan gemuk. Deni juga banyak makan dan gemuk. Setiap yang banyak makan pasti gemuk", "Si Dedel jarang makan dan kurus. Si Nenek juga jarang makan dan kurus. Orang yang jarang makan pasti kurus", "Pak Budi menderita sakit dan meninggal. Pak Hadu juga sakit dan meninggal. Setiap orang yang menderita sakit pasti meninggal", "Bu Kamsi manusia dan meninggal. Pak Jarwo manusia, juga meninggal. Setiap manusia pasti meninggal"], correctAnswer: 3 },
+        { question: "Dalam suatu argumen deduktif, premis yang ditulis pada baris kedua dinamakan premis....", options: ["minor", "mayor", "silogis", "kesimpulan"], correctAnswer: 0 },
+        { question: "Bentuk argumen yang dinamakan silogisme mengandung", options: ["minimal satu premis", "paling banyak satu premis", "minimal dua premis", "paling banyak dua premis"], correctAnswer: 2 },
+        { question: "Perhatikan kalimat berikut!\nSemua mahluk hidup akan mati.\nKuda adalah mahluk hidup.\nKuda akan mati.\nKalimat-kalimat tersebut membentuk suatu...", options: ["premis mayor", "premis minor", "argumen induktif", "argumen deduktif"], correctAnswer: 3 },
+        { question: "Semua ragam silogisme deduktif yang mengandung premis \"apabila turun hujan, jalan-jalan basah\" berikut benar, kecuali silogisme deduktif...", options: ["hipotetis", "kategoris", "bersyarat", "kondisional"], correctAnswer: 1 },
+        { question: "Ciri berikut yang tidak termasuk ciri argumen induktif adalah.......", options: ["adanya generalisasi", "menggunakan premis", "didasarkan pada kasus", "didasarkan pada contoh"], correctAnswer: 1 },
+        { question: "Argumen induktif harus dengan sangat seksama diajukan karena kesimpulan yang diperoleh tidak didasarkan pada...", options: ["contoh", "kasus", "premis", "generalisasi"], correctAnswer: 2 },
+        { question: "Majunya perkembangan ilmu pengetahuan terutama disebabkan oleh makin berkembangnya argumen...", options: ["logis", "empiris", "induktif", "deduktif"], correctAnswer: 2 },
+        { question: "Argumen induktif dapat dikatakan lebih unggul daripada argumen deduktif karena argumen induktif dapat.....", options: ["memastikan kebenaran premis", "menjawab dengan akurasi tinggi", "mempercepat perkembangan ilmu pengetahuan", "menjamin keberhasilan kesimpulan yang diambil"], correctAnswer: 2 },
+        { question: "Filsafat pendidikan sebagai disiplin ilmu penting dalam pengembangan ilmu pendidikan karena melaksanakan analisis dengan menemukan dan menginterpretasikan", options: ["tujuan pendidikan negara", "rambu-rambu teori pendidikan", "arah untuk melaksanakan pendidikan", "pembahasan teori pendidikan dengan kritis"], correctAnswer: 3 },
+        { question: "Arahan yang jelas dan tepat untuk melaksanakan sistem pendidikan nasional dari negara kita adalah......", options: ["Undang-undang Nomor 20 Tahun 2003", "Undang-undang Nomor 23 Tahun 2003", "Undang-undang Nomor 19 Tahun 2003", "Undang-undang Nomor 18 Tahun 2003"], correctAnswer: 0 },
+        { question: "Pengetahuan sudah terasa dalam jiwa (mind) tetapi membutuhkan usaha untuk dibawa pada tingkat kesadaran melalui suatu proses. Hal ini merupakan pandangan dari aliran....", options: ["Idealisme", "Realisme", "Pragmatisme", "Humanisme"], correctAnswer: 0 },
+        { question: "Aliran filsafat yang berpandangan bahwa pengetahuan sebenarnya sudah berada dalam jiwa kita tetapi, membutuhkan usaha untuk dibawa pada tingkat kesadaran kita melalui introspeksi adalah aliran...", options: ["Idealisme", "Realisme", "Pragmatisme", "Humanisme"], correctAnswer: 0 },
+        { question: "Pendidikan Humanisme menekankan pada...", options: ["anak", "guru", "anak dan guru", "orangtua/masyarakat"], correctAnswer: 0 },
+        { question: "Pendidikan Humanisme berpedoman pada...", options: ["guru berperan sebagai pusat belajar", "kurikulum ditekankan pada peserta didik", "metode yang digunakan adalah pembelajaran terpusat", "konsepsi tujuan pendidikan adalah pada pemenuhan kurikulum"], correctAnswer: 1 },
+        { question: "Hal yang membedakan antara aliran Idealisme dengan aliran Realisme adalah...", options: ["Idealisme memperhatikan latar belakang peserta didik, sementara Realisme membebaskan peserta didik", "Idealisme menggunakan metode penyelidikan, sementara Realisme menggunakan metode dialektik", "Idealisme membebaskan peserta didik untuk mengembangkan kepribadian, sementara Realisme fokus pada pengembangan tanggung jawab kepribadian peserta didik kepada masyarakat", "kurikulum aliran Idealisme ditujukan untuk membentuk kemampuan berpikir rasional, sementara Realisme mengembangkan kurikulum yang membuat peserta didik terbebaskan"], correctAnswer: 2 },
+        { question: "Apakah yang membedakan aliran Idealisme dengan aliran Realisme?", options: ["Idealisme memperhatikan rekam jejak peserta didik, sementara Realisme membebaskan peserta didik", "Idealisme menggunakan metode dialek, sementara Realisme menggunakan metode penyelidikan", "Idealisme membebaskan peserta didik untuk mengembangkan kepribadian, sementara Realisme membatasi kepribadian peserta didik", "Kurikulum aliran Idealisme ditujukan untuk membentuk kemampuan berpikir rasional, sementara Realisme mengembangkan kurikulum yang terfokus"], correctAnswer: 1 },
+        { question: "Apakah yang membedakan aliran Pragmatisme dengan aliran Idealisme?", options: ["Pragmatisme berasal dari Amerika, sementara Idealisme berasal dari Asia", "Pragmatisme berbicara tentang kegunaan, sementara Idealisme bicara tentang pengetahuan", "Pragmatisme menggunakan metode learning by doing, sementara Idealisme menggunakan metode experiencing", "Pragmatisme dipengaruhi oleh pandangan empirisme, utilitarianisme, dan positivisme, sementara Idealisme dipengaruhi pandangan positivisme dan egalitarisme"], correctAnswer: 1 },
+        { question: "Aliran Pragmatisme dan Idealisme berbeda dalam hal.....", options: ["Pragmatisme berasal dari Amerika sementara Idealisme dari Eropa", "Pragmatisme bicara tentang pengetahuan sementara Idealisme bicara tentang makna", "Pragmatisme menggunakan metode bermain sementara Idealisme menggunakan metode eksperimen", "Pragmatisme dipengaruhi pandangan empirisme sementara Idealisme dipengaruhi pandangan positivisme"], correctAnswer: 0 },
+        { question: "Aliran Humanisme berpandangan bahwa pendidikan harus berpedoman pada....", options: ["kedisiplinan dalam belajar", "aktualisasi diri", "rekomendasi pengetahuan", "pembuktian ilmiah"], correctAnswer: 1 },
+        { question: "Apa yang menyebabkan aliran Behaviorisme mempunyai pengaruh terhadap sistem pendidikan nasional?", options: ["Aliran ini merupakan penerapan dari teori-teori psikologi dalam pendidikan", "Penekanan kurikulum aliran ini adalah pada minat peserta didik dan bukan pada subjek yang dirancang secara terurai", "Rumusan tujuan pendidikan dari aliran ini adalah mengubah atau memodifikasi tingkah laku yang nampak pada rumusan TIK/TIU", "Peserta didik tidak memiliki kebebasan dalam menentukan sendiri materi apa yang akan dipelajari"], correctAnswer: 2 },
+        { question: "Dalam pengembangan sistem pendidikan nasional, aliran Konstruktivisme berperan dalam....", options: ["menghasilkan individu yang mampu menyelesaikan persoalan hidup", "membekali individu agar dapat menyesuaikan diri dalam masyarakat", "membangun aktualisasi diri", "membentuk pribadi agar memiliki tanggung jawab"], correctAnswer: 0 },
+        { question: "Konstruktivisme dalam pengembangan sistem pendidikan di Indonesia lebih menekankan kepada aspek.....", options: ["pendidikan didesain untuk mempersiapkan peserta didik menghadapi kehidupannya", "peserta didik harus selalu aktif dan dapat menentukan cara belajar yang sesuai bagi dirinya", "guru bertanggung jawab pada kualitas dan kriteria hasil belajar siswa", "pendidikan ditekankan pada metode yang menggunakan penguatan dalam belajar"], correctAnswer: 1 },
+        { question: "Penelitian Tindakan Kelas (PTK) berperan dalam mengatasi masalah pendidikan karena PTK mampu.....", options: ["mengelola kelas menjadi lebih efektif", "mendorong guru untuk berpikir kritis", "memotivasi murid dan guru untuk berinteraksi secara positif", "memberikan manfaat langsung langsung dalam perbaikan proses"], correctAnswer: 3 },
+        { question: "Penelitian Tindakan Kelas (PTK) berperan dalam mengatasi masalah pendidikan karena kemampuannya dalam....", options: ["mengelola masalah di sekolah", "menganalisis kejadian yang terjadi di kelas", "menghasilkan perbaikan proses pembelajaran", "menyelesaikan proses pembelajaran"], correctAnswer: 2 },
+        { question: "Peranan filsafat pendidikan dalam pemecahan masalah pendidikan di Indonesia lebih mengarah kepada peningkatan mutu pendidikan. Kualitas pendidikan sangat ditentukan oleh faktor determinan dalam menentukan tinggi rendahnya mutu pendidikan. Faktor determinan yang dimaksud adalah....", options: ["guru dan tenaga kependidikan", "pengelola sekolah", "peserta didik", "kurikulum dan pembelajaran"], correctAnswer: 0 },
+        { question: "Peranan filsafat pendidikan dalam pemecahan masalah pendidikan di Indonesia lebih mengarah kepada peningkatan mutu pendidikan. Berikut adalah hal-hal yang berkaitan dengan kualitas pendidikan, kecuali...", options: ["kurikulum dan pembelajaran", "metode pembelajaran", "media dan alat bantu pembelajaran", "orang tua/wali murid"], correctAnswer: 3 },
+        { question: "Peningkatan mutu tenaga kependidikan adalah kebijakan yang dibuat dalam kaitannya dengan isu....", options: ["peningkatan kualitas guru", "peningkatan kualitas pembelajaran.", "peningkatan lembaga pendidikan guru", "mutu pendidikan secara nasional"], correctAnswer: 0 },
+        { question: "Agar kualitas pendidikan di negara kita (Indonesia) dapat ditingkatkan, diperlukan anggaran pendidikan yang sesuai, yaitu 20% dari dana APBN yang ada. Menurut Anda, usaha apa yang harus dilakukan Pemerintah agar tujuan tersebut dapat dicapai?", options: ["Menentukan skala prioritas dan menentukan program utama agar sasaran yang telah ditetapkan dapat tercapai", "Mengurangi anggaran pembangunan daerah", "Mencabut menghilangkan dana subsidi minyak/bahan bakar", "Mengawasi proses pembangunan secara ketat tidak terjadi korupsi"], correctAnswer: 0 },
+        { question: "Untuk menghindari penyaluran sekitar 20% dana APBN yang tidak sesuai peruntukannya, diperlukan disiplin anggaran secara ketat. Bagaimana cara penyaluran anggaran tersebut?", options: ["Perampingan struktur organisasi Departemen Pendidikan Nasional", "Pengurangan jumlah pegawai Depdiknas", "Menetapkan target secara benar dan alokasi pos-pos pendidikan", "Memberantas KKN"], correctAnswer: 2 },
+        { question: "Fungsi filsafat ilmu dalam kaitannya dengan peningkatan mutu pendidikan di Indonesia yaitu....", options: ["Menyelenggarakan pendidikan khusus anak-anak yang terbelakang mental", "Melatih para calon guru agar menjadi guru yang berkualitas", "Merespons dinamika dan tuntutan masyarakat, serta perkembangan ilmu pengetahuan khususnya dalam bidang keguruan", "Merupakan mata kuliah wajib bagi para calon guru"], correctAnswer: 2 },
+        { question: "Evaluasi terhadap kebijakan pendidikan yang ada diperlukan untuk....", options: ["mengukur kinerja guru", "mengukur prestasi siswa", "proses pembelajaran berjalan dengan baik", "melihat apakah kebijakan pendidikan masih layak untuk digunakan, diperbaiki, atau ditinggalkan"], correctAnswer: 3 },
+        { question: "Faktor-faktor yang perlu diperhatikan dalam merumuskan kebijakan pendidikan nasional adalah....", options: ["mengadakan evaluasi terhadap kebijaksanaan pendidikan yang ada", "mengadakan rembuk nasional", "membentuk panitia perumusan arah kebijakan pendidikan", "melakukan studi banding keluar negeri"], correctAnswer: 0 },
+        { question: "Pendekatan konservatif dalam dunia pendidikan memungkinkan pendidikan kurang...", options: ["proses pembelajaran terpusat kepada guru", "proses pembelajaran terpusat kepada siswa", "proses pembelajaran dipenuhi dengan diskusi antar siswa dan guru", "fungsi guru hanya sebagai inovator dan motivator"], correctAnswer: 1 },
+        { question: "Pendekatan konservatif dalam dunia pendidikan dinilai kurang baik untuk diaplikasikan dalam proses pembelajaran. Hal ini disebabkan oleh beberapa hal, kecuali....", options: ["pendekatan ini menyebabkan anak menjadi pasif", "pembelajaran menjadi menarik, karena proses mengajar dilakukan berbagai metode", "konsep belajar lebih kuat dari pada belajar dan lebih banyak bersifat forma", "pendidikan diarahkan untuk domestifikasi, penjinakan, dan penyesuaian sosial"], correctAnswer: 1 },
+        { question: "Alasan yang melatarbelakangi dibentuknya Badan Standar Nasional Pendidikan (BNSP) di Indonesia adalah.....", options: ["hanya sekitar 60% guru TK sampai SLTA yang memiliki kualifikasi mengajar", "sebagian besar guru di Indonesia dari TK sampai SLTA belum sarjana (S1)", "banyaknya sekolah di Indonesia yang belum terakreditasi", "banyak guru yang belum ditata administrasinya dengan baik"], correctAnswer: 2 },
+        { question: "Sebagai lembaga yang mandiri, profesional, dan independen, Badan Standar Nasional Pendidikan (BNSP) mengemban misi untuk....", options: ["membagikan sertifikasi kepada sekitar 60% guru TK sampai SLTA yang belum mempunyai kualifikasi mengajar", "meningkatkan mutu pendidikan berdasarkan standar nasional pendidikan", "membantu Menteri Pendidikan dan Kebudayaan nasional", "mengembangkan, memantau, dan mengevaluasi pelaksanaan standar pendidikan"], correctAnswer: 3 },
+        { question: "Salah satu peranan Lembaga Pendidikan Tenaga Kependidikan (LPTK) adalah....", options: ["mencetak lulusan yang berkualitas", "menyediakan sarana dan prasarana belajar", "memberikan bantuan dana kepada guru yang belum sarjana", "mengembangkan kurikulum dengan pendekatan Curriculum Development Model"], correctAnswer: 0 },
+        { question: "LPTK memiliki peranan strategis dalam...", options: ["mencerdaskan kehidupan bangsa", "memberantas buta huruf", "memerangi kebodohan", "mengurangi jumlah anak putus sekolah"], correctAnswer: 0 }
+    ];
+
+    let quizData = [];
+    let currentQuestionIndex = 0;
+    let userAnswers = []; 
+    let checkedStatus = []; 
+    
+    // Array untuk label abjad
+    const alphabetLabels = ['A', 'B', 'C', 'D', 'E'];
+
+    const questionEl = document.getElementById('question');
+    const optionsEl = document.getElementById('options');
+    const progressEl = document.getElementById('progress-text');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    const btnCheck = document.getElementById('btn-check');
+    const quizScreen = document.getElementById('quiz-screen');
+    const resultScreen = document.getElementById('result-screen');
+    const scoreEl = document.getElementById('score');
+
+    // FUNGSI UNTUK MENGACAK ARRAY (Fisher-Yates Shuffle)
+    function shuffleArray(array) {
+        let shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    }
+
+    function initQuiz() {
+        // Mengacak urutan soal setiap kali kuis dimulai atau diulang
+        quizData = shuffleArray(originalQuestions); 
+        
+        userAnswers = new Array(quizData.length).fill(null);
+        checkedStatus = new Array(quizData.length).fill(false);
+        currentQuestionIndex = 0;
+        quizScreen.style.display = 'block';
+        resultScreen.style.display = 'none';
+        loadQuestion();
+    }
+
+    function loadQuestion() {
+        const currentData = quizData[currentQuestionIndex];
+        
+        // Menambahkan nomor urut di awal teks pertanyaan
+        questionEl.innerText = `${currentQuestionIndex + 1}. ${currentData.question}`;
+        
+        progressEl.innerText = `Soal ${currentQuestionIndex + 1} dari ${quizData.length}`;
+        
+        optionsEl.innerHTML = '';
+
+        currentData.options.forEach((option, index) => {
+            const div = document.createElement('div');
+            div.classList.add('option');
+            
+            // Membuat elemen span khusus untuk label (A., B., C., D.)
+            const labelSpan = document.createElement('span');
+            labelSpan.classList.add('option-label');
+            labelSpan.innerText = `${alphabetLabels[index]}.`;
+            
+            // Membuat elemen span khusus untuk teks jawabannya
+            const textSpan = document.createElement('span');
+            textSpan.innerText = option;
+            
+            // Memasukkan label dan teks ke dalam div opsi
+            div.appendChild(labelSpan);
+            div.appendChild(textSpan);
+            
+            if (userAnswers[currentQuestionIndex] === index) {
+                div.classList.add('selected');
+            }
+
+            if (checkedStatus[currentQuestionIndex]) {
+                div.style.pointerEvents = 'none'; 
+                if (index === currentData.correctAnswer) {
+                    div.classList.add('correct');
+                } else if (userAnswers[currentQuestionIndex] === index) {
+                    div.classList.add('wrong');
+                }
+            } else {
+                div.addEventListener('click', () => selectOption(index));
+            }
+
+            optionsEl.appendChild(div);
+        });
+
+        updateButtons();
+    }
+
+    function selectOption(selectedIndex) {
+        if (checkedStatus[currentQuestionIndex]) return; 
+
+        userAnswers[currentQuestionIndex] = selectedIndex;
+        
+        const options = optionsEl.children;
+        for (let i = 0; i < options.length; i++) {
+            options[i].classList.remove('selected');
+        }
+        
+        options[selectedIndex].classList.add('selected');
+        updateButtons();
+    }
+
+    function checkAnswer() {
+        if (userAnswers[currentQuestionIndex] === null) {
+            alert("Pilih jawaban yang paling comel dulu ya! 🎀");
+            return;
+        }
+
+        checkedStatus[currentQuestionIndex] = true;
+        const currentData = quizData[currentQuestionIndex];
+        const options = optionsEl.children;
+
+        for (let i = 0; i < options.length; i++) {
+            options[i].style.pointerEvents = 'none';
+            if (i === currentData.correctAnswer) {
+                options[i].classList.add('correct');
+                options[i].classList.remove('selected');
+            } else if (i === userAnswers[currentQuestionIndex]) {
+                options[i].classList.add('wrong');
+                options[i].classList.remove('selected');
+            }
+        }
+        updateButtons();
+    }
+
+    function updateButtons() {
+        btnPrev.disabled = currentQuestionIndex === 0;
+        btnCheck.disabled = userAnswers[currentQuestionIndex] === null || checkedStatus[currentQuestionIndex];
+
+        if (currentQuestionIndex === quizData.length - 1) {
+            btnNext.innerText = "Selesai 💖";
+        } else {
+            btnNext.innerText = "Selanjutnya 🎀";
+        }
+    }
+
+    function prevQuestion() {
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            loadQuestion();
+        }
+    }
+
+    function nextQuestion() {
+        if (currentQuestionIndex < quizData.length - 1) {
+            currentQuestionIndex++;
+            loadQuestion();
+        } else {
+            showResults();
+        }
+    }
+
+    function showResults() {
+        quizScreen.style.display = 'none';
+        resultScreen.style.display = 'block';
+
+        let score = 0;
+        for (let i = 0; i < quizData.length; i++) {
+            if (userAnswers[i] === quizData[i].correctAnswer) {
+                score++;
+            }
+        }
+
+        scoreEl.innerText = `Skor Kamu: ${score} / ${quizData.length}`;
+    }
+
+    function retakeQuiz() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+        initQuiz(); 
+    }
+
+    initQuiz();
+</script>
+
+</body>
+</html>
